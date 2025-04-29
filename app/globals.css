@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --font-poppins: "Poppins", sans-serif;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-poppins);
+}
+
+/* SimpleBar scrollbar: initially invisible */
+.custom-scrollbar .simplebar-scrollbar::before {
+  background: rgba(255, 255, 255, 0) !important; /* Invisible initially */
+  border-radius: 4px !important;
+  transition: background 0.2s ease-in-out !important;
+}
+
+/* Show scrollbar on hover */
+.custom-scrollbar:hover .simplebar-scrollbar::before {
+  background: rgba(255, 255, 255, 0.3) !important; /* Visible on hover */
+  border-radius: 4px !important;
+}
+
+/* Optional: Hide horizontal scrollbar completely */
+.simplebar-track.simplebar-horizontal {
+  display: none !important;
+}
+
+/* Adjust the vertical scrollbar width */
+.simplebar-track.simplebar-vertical {
+  width: 8px !important;
+  right: 2px !important;
+}
+
+/* Ensure content doesn't shift due to scrollbar */
+.simplebar-content-wrapper {
+  padding-right: 6px !important; /* Adjust as needed */
+}
+
